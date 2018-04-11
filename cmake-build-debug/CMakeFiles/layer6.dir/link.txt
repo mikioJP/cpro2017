@@ -1,0 +1,1 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/layer6.dir/main.c.o "CMakeFiles/layer6.dir/inference6(hodai16).c.o" CMakeFiles/layer6.dir/inference.c.o  -o layer6 
