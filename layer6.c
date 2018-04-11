@@ -249,7 +249,6 @@ void backward6(const float *A1, const float *b1,
 }
 
 //indexを乱数でシャッフルする用
-//参考にするだけにしてください(by mikioJP)
 void shuffle(int n, int *x){
     int i;
     for (i = 0; i < n ; ++i) {
@@ -263,13 +262,11 @@ void shuffle(int n, int *x){
 }
 
 //交差エントロピー
-//参考にするだけにしてください(by mikioJP)
 float loss(const float y, unsigned char t){
     return (float) (-1 * t * log(y + 0.0000001));
 }
 
 //和計算
-//参考にするだけにしてください(by mikioJP)
 void add(int n,  const float *x, float *o){
     int i;
     for (i = 0; i < n; ++i) {
@@ -278,7 +275,6 @@ void add(int n,  const float *x, float *o){
 }
 
 //定数倍
-//参考にするだけにしてください(by mikioJP)
 void scale(int n, float x, float *o){
     int i;
     for (i = 0; i < n; ++i) {
@@ -287,7 +283,6 @@ void scale(int n, float x, float *o){
 }
 
 //任意のfloatで初期化
-//参考にするだけにしてください(by mikioJP)
 void init (int n, float x, float *o){
     int i;
     for (i = 0; i < n; ++i) {
@@ -306,11 +301,8 @@ void rand_init(int n, float *o){
     }
 
 }*/
-//参考にするだけにしてください(by mikioJP)
-
 
 //ボックスミューラー法で正規分布の乱数を生成
-//今見るとここが一番ダメなので参考にするだけにしてください(by mikioJP)
 
 void muller_init(int n, float *o){
     srand((unsigned)time(NULL));
@@ -325,7 +317,6 @@ void muller_init(int n, float *o){
 }
 
 //学習係数を保存
-//参考にするだけにしてください(by mikioJP)
 void save(const char *filename, int n, int m, const float *A,const float *b){
 
     FILE *file;
@@ -341,7 +332,6 @@ void save(const char *filename, int n, int m, const float *A,const float *b){
 }
 
 //学習係数を読み込み
-//参考にするだけにしてください(by mikioJP)
 void load(const char *filename,int n,int m,float *A, float *b){
 
     FILE *file;
@@ -377,7 +367,7 @@ int main() {
     // これ以降，３層NNの係数 A_784x10 および b_784x10 と，
     // 訓練データ train_x[0]～train_x[train_count-1], train_y[0]～train_x[train_count-1],
     // テストデータ test_x[0]～test_x[test_count-1], test_y[0]～test_y[test_count-1],
-    // を使用することができる．頑張って
+    // を使用することができる．
 
     //randの初期化
     srand(time(NULL));
@@ -435,7 +425,6 @@ int main() {
 
 
     //以下ミニバッチ学習
-    //コピペ対策
 
     for (l = 0; l < epocTimes; ++l) {
         //index並び替え
@@ -504,8 +493,6 @@ int main() {
                 correctCount++;
             }
             LossValue += loss(y1[test_y[i]], 1);
-              //先生私はコピペしました。なのでこの単位は必要ありません。
-
 
         }
 
@@ -520,7 +507,7 @@ int main() {
     save("fc3.dat",10,100, A3, b3);
 
     //メモリ解放
-      free(y1);free(y2);
+    free(y1);free(y2);
     free(dA1);free(db1);free(dA2);free(db2);free(dA3);free(db3);
     free(AVEdA1);free(AVEdb1);free(AVEdA2);free(AVEdb2);free(AVEdA3);free(AVEdb3);
     free(A1);free(b1);free(A2);free(b2);free(A3);free(b3);
